@@ -1,0 +1,43 @@
+<!--camera.wxml-->
+<navigation-bar title="拍照识别" color="black" background="#FFF"></navigation-bar>
+
+<view class="container">
+  <block wx:if="{{!sudokuImage}}">
+    <view class="camera-container">
+      <camera device-position="back" flash="off" binderror="error" class="camera"></camera>
+      <view class="camera-overlay">
+        <view class="focus-area"></view>
+      </view>
+      
+      <view class="camera-error" wx:if="{{cameraError}}">
+        <view class="error-icon">!</view>
+        <text class="error-message">未找到摄像头</text>
+        <text class="error-detail">请尝试使用相册选择图片</text>
+      </view>
+    </view>
+    
+    <view class="tips">
+      <text>提示：请对准数独拍摄，保持光线充足</text>
+    </view>
+  </block>
+  
+  <block wx:else>
+    <view class="image-container">
+      <image mode="aspectFit" src="{{sudokuImage}}" class="sudoku-image"></image>
+    </view>
+    
+    <view class="processing" wx:if="{{processingImage}}">
+      <text>正在处理图片，请稍候...</text>
+    </view>
+  </block>
+</view>
+
+<view class="footer-buttons">
+  <block wx:if="{{!sudokuImage}}">
+    <button class="footer-btn" bindtap="chooseFromAlbum">从相册选择</button>
+    <button class="footer-btn primary" bindtap="takePhoto" disabled="{{cameraError}}">拍照</button>
+  </block>
+  <block wx:else>
+    <button class="footer-btn wide" bindtap="backToHome" wx:if="{{!processingImage}}">重新拍摄</button>
+  </block>
+</view> 

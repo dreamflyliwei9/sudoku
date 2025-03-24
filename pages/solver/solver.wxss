@@ -1,0 +1,201 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  padding-top: 35px;
+  height: 100vh;
+  box-sizing: border-box;
+  overflow-y: auto;
+  padding-bottom: 80px;
+}
+
+.sudoku-board {
+  width: 320px;
+  height: 320px;
+  border: 2px solid #333;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+.sudoku-row {
+  display: flex;
+  flex: 1;
+  width: 100%;
+  height: calc(100% / 9);
+  min-height: calc(100% / 9);
+  border-bottom: 1px solid #ddd;
+}
+
+.sudoku-row:last-child {
+  border-bottom: none;
+}
+
+.sudoku-cell {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px solid #ddd;
+  font-size: 18px;
+  font-weight: bold;
+  box-sizing: border-box;
+  min-width: 30px;
+  padding: 0;
+  margin: 0;
+}
+
+.sudoku-cell text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.border-bottom {
+  border-bottom: 2px solid #333 !important;
+}
+
+.border-right {
+  border-right: 2px solid #333 !important;
+}
+
+.original-value {
+  color: #333;
+}
+
+.solved-value {
+  color: #07c160;
+}
+
+.current-step {
+  background-color: #e6f7ff;
+}
+
+.action-area {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+  flex: 1;
+  justify-content: flex-start;
+}
+
+.action-btn {
+  width: 80%;
+  height: 44px;
+  line-height: 44px;
+  background-color: #07c160;
+  color: white;
+  font-size: 16px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+}
+
+.step-controls {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 15px;
+}
+
+.step-btn {
+  width: 30%;
+  font-size: 15px;
+  height: 40px;
+  line-height: 40px;
+  padding: 0;
+  border-radius: 20px;
+}
+
+.step-indicator {
+  font-size: 15px;
+  color: #666;
+  min-width: 60px;
+  text-align: center;
+}
+
+.step-description {
+  width: 90%;
+  background-color: #f8f8f8;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.step-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.step-reason {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.5;
+}
+
+.validation-result {
+  width: 90%;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: #f5f5f5;
+  text-align: center;
+  margin: 30px 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.valid {
+  color: #07c160;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.invalid {
+  color: #e64340;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.home-btn {
+  width: 80%;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.footer-button {
+  position: fixed;
+  bottom: 40px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 0 20px;
+  box-sizing: border-box;
+  z-index: 100;
+}
+
+.solution-btn {
+  width: 80%;
+  height: 44px;
+  line-height: 44px;
+  background-color: #07c160;
+  color: white;
+  font-size: 16px;
+  border-radius: 22px;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(7, 193, 96, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0 auto;
+} 

@@ -1,0 +1,52 @@
+/* pages/about/about.wxss */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  padding-top: 60px;
+  padding-bottom: 80px;
+  height: 100vh;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.version {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.content {
+  width: 100%;
+}
+
+.section {
+  margin-bottom: 30px;
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #07c160;
+  border-left: 4px solid #07c160;
+  padding-left: 10px;
+}
+
+.section-content {
+  padding: 0 15px;
+}
+
+.feature, .instruction {
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #333;
+  line-height: 1.6;
+}

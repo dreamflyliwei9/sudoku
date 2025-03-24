@@ -1,0 +1,38 @@
+<!--manual.wxml-->
+<navigation-bar title="手动输入数独" color="black" background="#FFF"></navigation-bar>
+
+<view class="container">
+  <view class="sudoku-board">
+    <block wx:for="{{9}}" wx:for-item="rowIndex" wx:key="rowIndex">
+      <view class="sudoku-row">
+        <block wx:for="{{9}}" wx:for-item="colIndex" wx:key="colIndex">
+          <view class="sudoku-cell {{(rowIndex == 2 || rowIndex == 5) ? 'border-bottom' : ''}} {{(colIndex == 2 || colIndex == 5) ? 'border-right' : ''}} {{rowIndex === selectedRow && colIndex === selectedCol ? 'selected' : ''}}" 
+                bindtap="selectCell" data-row="{{rowIndex}}" data-col="{{colIndex}}">
+            <text wx:if="{{sudokuData[rowIndex][colIndex] !== 0}}">{{sudokuData[rowIndex][colIndex]}}</text>
+            <text wx:else></text>
+          </view>
+        </block>
+      </view>
+    </block>
+  </view>
+  
+  <view class="tips">
+    <text>提示：已知数字可手动输入，空白格子留空</text>
+  </view>
+  
+  <view class="action-area">
+    <view class="buttons">
+      <button class="action-btn primary" bindtap="startAnalysis">开始分析</button>
+      <button class="action-btn secondary" bindtap="resetSudoku">重置</button>
+    </view>
+  </view>
+  
+  <view class="keypad-container" wx:if="{{showKeypad}}" bindtap="closeKeypad">
+    <view class="keypad" catchtap="stopPropagation">
+      <block wx:for="{{9}}" wx:key="index">
+        <view class="key" hover-class="key-hover" catchtap="inputNumber" data-number="{{index + 1}}">{{index + 1}}</view>
+      </block>
+      <view class="key delete" hover-class="delete-hover" catchtap="inputNumber" data-number="delete">清除</view>
+    </view>
+  </view>
+</view> 

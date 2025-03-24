@@ -1,0 +1,62 @@
+<!--solver.wxml-->
+<navigation-bar title="{{isCompletedSudoku ? '数独验证' : '数独分析'}}" color="black" background="#FFF"></navigation-bar>
+
+<view class="container">
+  <view class="sudoku-board">
+    <block wx:for="{{9}}" wx:for-item="rowIndex" wx:key="rowIndex">
+      <view class="sudoku-row">
+        <block wx:for="{{9}}" wx:for-item="colIndex" wx:key="colIndex">
+          <view class="sudoku-cell {{(rowIndex == 2 || rowIndex == 5) ? 'border-bottom' : ''}} {{(colIndex == 2 || colIndex == 5) ? 'border-right' : ''}} {{showSolution && currentStepIndex >= 0 && solutionSteps[currentStepIndex].position.row === rowIndex && solutionSteps[currentStepIndex].position.col === colIndex ? 'current-step' : ''}}">
+            <block wx:if="{{showSolution && currentStepIndex >= 0}}">
+              <text wx:if="{{solutionSteps[currentStepIndex].boardState[rowIndex][colIndex] !== 0}}" class="{{sudokuData[rowIndex][colIndex] === 0 && solutionSteps[currentStepIndex].boardState[rowIndex][colIndex] !== 0 ? 'solved-value' : 'original-value'}}">{{solutionSteps[currentStepIndex].boardState[rowIndex][colIndex]}}</text>
+              <text wx:else></text>
+            </block>
+            <block wx:else>
+              <text wx:if="{{sudokuData[rowIndex][colIndex] !== 0}}">{{sudokuData[rowIndex][colIndex]}}</text>
+              <text wx:else></text>
+            </block>
+          </view>
+        </block>
+      </view>
+    </block>
+  </view>
+  
+  <view class="action-area">
+    <!-- 显示已完成数独的验证结果 -->
+    <block wx:if="{{isCompletedSudoku && validationResult}}">
+      <view class="validation-result">
+        <view class="{{validationResult.valid ? 'valid' : 'invalid'}}">
+          {{validationResult.message}}
+        </view>
+      </view>
+    </block>
+    
+    <!-- 解题步骤控制和说明 -->
+    <block wx:if="{{!isCompletedSudoku && showSolution}}">
+      <view class="step-controls">
+        <button class="step-btn" bindtap="prevStep" disabled="{{currentStepIndex <= 0}}">上一步</button>
+        <view class="step-indicator">{{currentStepIndex + 1}}/{{solutionSteps.length}}</view>
+        <button class="step-btn" bindtap="nextStep" disabled="{{currentStepIndex >= solutionSteps.length - 1}}">下一步</button>
+      </view>
+      
+      <view class="step-description">
+        <view class="step-title">{{solutionSteps[currentStepIndex].description}}</view>
+        <view class="step-reason">{{solutionSteps[currentStepIndex].reason}}</view>
+      </view>
+      
+      <!-- 显示最后一步后的验证结果 -->
+      <block wx:if="{{validationResult}}">
+        <view class="validation-result">
+          <view class="{{validationResult.valid ? 'valid' : 'invalid'}}">
+            {{validationResult.message}}
+          </view>
+        </view>
+      </block>
+    </block>
+  </view>
+</view>
+
+<!-- 未完成数独的解题步骤按钮，放在底部固定位置 -->
+<view class="footer-button" wx:if="{{!isCompletedSudoku && !showSolution && isSolved}}">
+  <view class="solution-btn" bindtap="showSolutionSteps">显示解题步骤</view>
+</view> 

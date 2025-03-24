@@ -1,6 +1,10 @@
 {
   "pages": [
-    "pages/index/index"
+    "pages/index/index",
+    "pages/camera/camera",
+    "pages/solver/solver",
+    "pages/about/about",
+    "pages/manual/manual"
   ],
   "window": {
     "navigationBarTextStyle": "black",

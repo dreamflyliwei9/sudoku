@@ -1,7 +1,20 @@
 <!--index.wxml-->
-<navigation-bar title="Weixin" back="{{false}}" color="black" background="#FFF"></navigation-bar>
-<scroll-view class="scrollarea" scroll-y type="list">
-  <view class="container">
-    Weixin
+<navigation-bar title="数独助手" color="black" background="#FFF"></navigation-bar>
+<view class="container">
+  <view class="title">数独助手</view>
+  <view class="description">拍照识别数独，自动分析解题步骤</view>
+  
+  <view class="button-group">
+    <navigator url="/pages/camera/camera" open-type="navigate">
+      <button class="primary-btn">拍照/选择图片</button>
+    </navigator>
+    
+    <navigator url="/pages/manual/manual" open-type="navigate">
+      <button class="secondary-btn">手动输入数独</button>
+    </navigator>
+    
+    <navigator url="/pages/about/about" open-type="navigate">
+      <button class="info-btn">关于</button>
+    </navigator>
   </view>
-</scroll-view>
+</view>

@@ -1,0 +1,30 @@
+<!--about.wxml-->
+<navigation-bar title="关于" color="black" background="#FFF"></navigation-bar>
+
+<view class="container">
+  <view class="logo">数独助手</view>
+  <view class="version">版本 {{version}}</view>
+  
+  <view class="content">
+    <view class="section">
+      <view class="section-title">功能介绍</view>
+      <view class="section-content">
+        <view class="feature">• 拍照识别数独</view>
+        <view class="feature">• 手动输入数独</view>
+        <view class="feature">• 分析数独并提供详细解题步骤</view>
+        <view class="feature">• 自动校验数独解决方案正确性</view>
+      </view>
+    </view>
+    
+    <view class="section">
+      <view class="section-title">使用说明</view>
+      <view class="section-content">
+        <view class="instruction">1. 点击"拍照/选择图片"按钮拍摄或选择包含数独的图片</view>
+        <view class="instruction">2. 或者点击"手动输入数独"按钮手动录入数独状态</view>
+        <view class="instruction">3. 系统会自动识别数独并分析</view>
+        <view class="instruction">4. 对于已完成的数独会直接验证正确性</view>
+        <view class="instruction">5. 对于未完成的数独会显示详细解题步骤和说明</view>
+      </view>
+    </view>
+  </view>
+</view> 
