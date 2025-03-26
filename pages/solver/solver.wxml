@@ -1,5 +1,9 @@
 <!--solver.wxml-->
-<navigation-bar title="{{isCompletedSudoku ? '数独验证' : '数独分析'}}" color="black" background="#FFF"></navigation-bar>
+<navigation-bar title="{{isCompletedSudoku ? '数独验证' : '数独分析'}}" color="black" background="#FFF">
+  <view slot="left" class="nav-back-btn" bindtap="goBack">
+    <text class="back-arrow">＜</text>
+  </view>
+</navigation-bar>
 
 <view class="container">
   <view class="sudoku-board">

@@ -7,6 +7,12 @@ Page({
     showKeypad: false
   },
   
+  goBack() {
+    wx.navigateBack({
+      delta: 1
+    })
+  },
+  
   // 选择单元格
   selectCell(e) {
     const { row, col } = e.currentTarget.dataset;
@@ -119,6 +125,36 @@ Page({
     // 跳转到分析页面
     wx.navigateTo({
       url: '/pages/solver/solver'
+    });
+  },
+  
+  // AI分析
+  startAIAnalysis() {
+    // 检查是否有至少一个数字
+    let hasNumber = false;
+    for (let i = 0; i < 9 && !hasNumber; i++) {
+      for (let j = 0; j < 9 && !hasNumber; j++) {
+        if (this.data.sudokuData[i][j] !== 0) {
+          hasNumber = true;
+        }
+      }
+    }
+    
+    if (!hasNumber) {
+      wx.showToast({
+        title: '请至少输入一个数字',
+        icon: 'none'
+      });
+      return;
+    }
+    
+    // 将数据保存到全局
+    const app = getApp();
+    app.globalData.sudokuData = this.deepCopy(this.data.sudokuData);
+    
+    // 跳转到AI分析页面
+    wx.navigateTo({
+      url: '/pages/ai-solver/ai-solver'
     });
   }
 }) 

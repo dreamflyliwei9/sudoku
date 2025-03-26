@@ -4,7 +4,8 @@
     "pages/camera/camera",
     "pages/solver/solver",
     "pages/about/about",
-    "pages/manual/manual"
+    "pages/manual/manual",
+    "pages/ai-solver/ai-solver"
   ],
   "window": {
     "navigationBarTextStyle": "black",

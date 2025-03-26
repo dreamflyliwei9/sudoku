@@ -1,9 +1,15 @@
 <!--about.wxml-->
-<navigation-bar title="关于" color="black" background="#FFF"></navigation-bar>
+<navigation-bar title="关于" color="black" background="#FFF">
+  <view slot="left" class="nav-back-btn" bindtap="goBack">
+    <text class="back-arrow">＜</text>
+  </view>
+</navigation-bar>
 
 <view class="container">
-  <view class="logo">数独助手</view>
-  <view class="version">版本 {{version}}</view>
+  <view class="header">
+    <view class="logo">数独助手</view>
+    <view class="version">v{{version}}</view>
+  </view>
   
   <view class="content">
     <view class="section">

@@ -25,5 +25,7 @@
         "tabIndent": "insertSpaces",
         "tabSize": 4
     },
-    "projectArchitecture": "miniProgram"
+    "projectArchitecture": "miniProgram",
+    "cloudfunctionRoot": "cloudfunctions/",
+    "miniprogramRoot": ""
 }

@@ -1,0 +1,56 @@
+<!--ai-solver.wxml-->
+<navigation-bar title="AI分析" color="black" background="#FFF">
+  <view slot="left" class="nav-back-btn" bindtap="goBack">
+    <text class="back-arrow">＜</text>
+  </view>
+</navigation-bar>
+
+<view class="container">
+  <view class="sudoku-board">
+    <view class="board-container">
+      <block wx:for="{{9}}" wx:for-item="rowIndex" wx:key="rowIndex">
+        <view class="sudoku-row">
+          <block wx:for="{{9}}" wx:for-item="colIndex" wx:key="colIndex">
+            <view class="sudoku-cell {{(rowIndex == 2 || rowIndex == 5) ? 'border-bottom' : ''}} {{(colIndex == 2 || colIndex == 5) ? 'border-right' : ''}}">
+              <text class="{{originalData[rowIndex][colIndex] !== 0 ? 'original' : 'solution'}}">{{sudokuData[rowIndex][colIndex] !== 0 ? sudokuData[rowIndex][colIndex] : ''}}</text>
+            </view>
+          </block>
+        </view>
+      </block>
+    </view>
+  </view>
+
+  <view class="analysis-section">
+    <view class="loading" wx:if="{{isAnalyzing}}">
+      <view class="loading-text">AI正在思考中...</view>
+      <view class="loading-dots"></view>
+    </view>
+    
+    <block wx:if="{{!isAnalyzing && analysis}}">
+      <view class="section-title">分析结果</view>
+      <view class="analysis-content">
+        <view class="analysis-item">
+          <text class="label">难度评估：</text>
+          <text class="value">{{analysis.difficulty}}</text>
+        </view>
+        <view class="analysis-item">
+          <text class="label">推荐策略：</text>
+          <text class="value">{{analysis.strategy}}</text>
+        </view>
+        <view class="analysis-item">
+          <text class="label">下一步提示：</text>
+          <text class="value">{{analysis.nextStep}}</text>
+        </view>
+      </view>
+    </block>
+
+    <view class="error" wx:if="{{error}}">
+      <text user-select="true">{{error}}</text>
+    </view>
+  </view>
+
+  <view class="action-buttons" wx:if="{{!isAnalyzing && !error}}">
+    <button class="action-btn" bindtap="getNextStep">获取下一步</button>
+    <button class="action-btn" bindtap="getSolution">显示完整解答</button>
+  </view>
+</view> 

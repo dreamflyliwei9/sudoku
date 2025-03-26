@@ -1,5 +1,9 @@
 <!--camera.wxml-->
-<navigation-bar title="拍照识别" color="black" background="#FFF"></navigation-bar>
+<navigation-bar title="拍照识别" color="black" background="#FFF">
+  <view slot="left" class="nav-back-btn" bindtap="goBack">
+    <text class="back-arrow">＜</text>
+  </view>
+</navigation-bar>
 
 <view class="container">
   <block wx:if="{{!sudokuImage}}">

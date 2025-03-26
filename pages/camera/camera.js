@@ -94,6 +94,12 @@ Page({
     wx.navigateBack();
   },
 
+  goBack() {
+    wx.navigateBack({
+      delta: 1
+    })
+  },
+
   error(e) {
     console.error(e.detail)
     this.setData({

@@ -156,5 +156,11 @@ Page({
     wx.navigateBack({
       delta: 2 // 返回到首页
     });
+  },
+  
+  goBack() {
+    wx.navigateBack({
+      delta: 1
+    })
   }
 }) 

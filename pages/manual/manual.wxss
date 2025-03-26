@@ -102,6 +102,16 @@
   color: white;
 }
 
+.action-btn.ai {
+  background: linear-gradient(135deg, #6236FF 0%, #3000D5 100%);
+  color: white;
+  margin: 0 10px;
+}
+
+.action-btn.ai:active {
+  opacity: 0.8;
+}
+
 .tips {
   font-size: 14px;
   color: #666;

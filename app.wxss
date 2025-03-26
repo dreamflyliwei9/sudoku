@@ -8,3 +8,17 @@
   padding: 200rpx 0;
   box-sizing: border-box;
 } 
+
+/* app.wxss */
+.nav-back-btn {
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.back-arrow {
+  font-size: 18px;
+  color: #333;
+  font-weight: bold;
+} 

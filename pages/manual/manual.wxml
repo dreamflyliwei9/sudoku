@@ -1,5 +1,9 @@
 <!--manual.wxml-->
-<navigation-bar title="手动输入数独" color="black" background="#FFF"></navigation-bar>
+<navigation-bar title="手动输入数独" color="black" background="#FFF">
+  <view slot="left" class="nav-back-btn" bindtap="goBack">
+    <text class="back-arrow">＜</text>
+  </view>
+</navigation-bar>
 
 <view class="container">
   <view class="sudoku-board">
@@ -22,7 +26,8 @@
   
   <view class="action-area">
     <view class="buttons">
-      <button class="action-btn primary" bindtap="startAnalysis">开始分析</button>
+      <button class="action-btn" bindtap="startAnalysis">规则分析</button>
+      <button class="action-btn ai" bindtap="startAIAnalysis">AI分析</button>
       <button class="action-btn secondary" bindtap="resetSudoku">重置</button>
     </view>
   </view>
